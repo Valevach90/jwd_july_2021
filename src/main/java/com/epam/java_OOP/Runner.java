@@ -19,7 +19,13 @@ public class Runner {
         airPlanes.add(a320);
         airPlanes.add(b220);
         airPlanes.add(b320);
-        AirCompany myAirCompany = new AirCompany(airPlanes);
+        List<CargoAirPlane> cargoAirPlanes = new ArrayList<>();
+        cargoAirPlanes.add(a220);
+        cargoAirPlanes.add(a320);
+        List<TransportAirPlane> transportAirPlanes = new ArrayList<>();
+        transportAirPlanes.add(b220);
+        transportAirPlanes.add(b320);
+        AirCompany myAirCompany = new AirCompany(cargoAirPlanes,transportAirPlanes,airPlanes);
         myAirCompany.menu(myAirCompany.userInput());
     }
 }

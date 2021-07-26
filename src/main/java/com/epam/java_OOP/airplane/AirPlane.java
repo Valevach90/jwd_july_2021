@@ -3,23 +3,15 @@ package com.epam.java_OOP.airplane;
 public class AirPlane {
     private int flightRange;
     private int fuelConsumption;
-    private CargoAirPlane cargoAirPlane;
-    private TransportAirPlane transportAirPlane;
     private String model;
 
-    public CargoAirPlane getCargoAirPlane() {
-        return cargoAirPlane;
-    }
 
     public String getModel() {
         return model;
     }
 
-    public TransportAirPlane getTransportAirPlane() {
-        return transportAirPlane;
-    }
 
-    public AirPlane(int flightRange, int fuelConsumption, String model) {
+    public AirPlane(int flightRange, int fuelConsumption,  String model) {
         this.flightRange = flightRange;
         this.fuelConsumption = fuelConsumption;
         this.model = model;
@@ -35,9 +27,10 @@ public class AirPlane {
 
     @Override
     public String toString() {
-        return "airPlane{" +
+        return "AirPlane{" +
                 "flightRange=" + flightRange +
                 ", fuelConsumption=" + fuelConsumption +
+                ", model='" + model + '\'' +
                 '}';
     }
 }

@@ -1,6 +1,8 @@
 package com.epam.java_OOP.air_company;
 
 import com.epam.java_OOP.airplane.AirPlane;
+import com.epam.java_OOP.airplane.CargoAirPlane;
+import com.epam.java_OOP.airplane.TransportAirPlane;
 
 import java.util.List;
 import java.util.Scanner;
@@ -8,24 +10,22 @@ import java.util.stream.Collectors;
 
 public class AirCompany {
 
+    private List<CargoAirPlane> cargoAirPlanes;
+    private List<TransportAirPlane> transportAirPlanes;
     private List<AirPlane> airPlanes;
 
-    public AirCompany(List<AirPlane> airPlanes) {
+    public AirCompany(List<CargoAirPlane> cargoAirPlanes, List<TransportAirPlane> transportAirPlanes, List<AirPlane> airPlanes) {
+        this.cargoAirPlanes = cargoAirPlanes;
+        this.transportAirPlanes = transportAirPlanes;
         this.airPlanes = airPlanes;
     }
 
     public int capacityCount() {
-        return airPlanes.stream().collect(Collectors
-                .summingInt(airPlaneCapacity -> airPlaneCapacity
-                        .getTransportAirPlane()
-                        .getCapacity()));
+        return transportAirPlanes.stream().mapToInt(capacity -> capacity.getCapacity()).sum();
     }
 
     public int liftingCapasityCount() {
-        return airPlanes.stream().collect(Collectors
-                .summingInt(airPlaneCapacity -> airPlaneCapacity
-                        .getCargoAirPlane()
-                        .getLiftingCapasity()));
+        return cargoAirPlanes.stream().mapToInt(capacity->capacity.getLiftingCapasity()).sum();
     }
 
     public List<AirPlane> flightRangeFilter(List<AirPlane> airPlanes, int flightRange) {
@@ -48,20 +48,32 @@ public class AirCompany {
     public void menu(int inPut) {
         switch(inPut) {
             case 1:
-                capacityCount();
+                System.out.println(capacityCount());
                 break;
             case 2:
-                liftingCapasityCount();
+                System.out.println(liftingCapasityCount());
                 break;
             case 3:
-                flightRangeFilter(airPlanes,userInput());
+                System.out.println( flightRangeFilter(airPlanes,userInput()));
                 break;
             case 4:
-                fuelConsumptionSearching(airPlanes,userInput());
+                System.out.println( fuelConsumptionSearching(airPlanes,userInput()));
                 break;
             default:
                 System.out.println("Wrong input");;
                 break;
         }
+    }
+
+    public List<CargoAirPlane> getCargoAirPlanes() {
+        return cargoAirPlanes;
+    }
+
+    public List<TransportAirPlane> getTransportAirPlanes() {
+        return transportAirPlanes;
+    }
+
+    public List<AirPlane> getAirPlanes() {
+        return airPlanes;
     }
 }

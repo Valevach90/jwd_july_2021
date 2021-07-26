@@ -15,7 +15,7 @@ public class CargoAirPlane extends AirPlane {
 
     @Override
     public String toString() {
-        return "cargoAirPlane{" +
+        return "CargoAirPlane{" +
                 "liftingCapasity=" + liftingCapasity +
                 '}';
     }
