@@ -5,7 +5,7 @@ public class TransportAirPlane extends AirPlane {
 
 
     public TransportAirPlane(int flightRange, int fuelConsumption, String model, int capacity) {
-        super(flightRange, fuelConsumption,  model);
+        super(flightRange, fuelConsumption, model);
         this.capacity = capacity;
     }
 
@@ -15,7 +15,7 @@ public class TransportAirPlane extends AirPlane {
 
     @Override
     public String toString() {
-        return "transportAirPlane{" +
+        return "Model{" + super.getModel() +
                 "capacity=" + capacity +
                 '}';
     }

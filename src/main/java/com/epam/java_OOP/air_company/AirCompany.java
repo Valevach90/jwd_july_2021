@@ -24,7 +24,7 @@ public class AirCompany {
         return transportAirPlanes.stream().mapToInt(capacity -> capacity.getCapacity()).sum();
     }
 
-    public int liftingCapasityCount() {
+    public int liftingCapacityCount() {
         return cargoAirPlanes.stream().mapToInt(capacity->capacity.getLiftingCapasity()).sum();
     }
 
@@ -51,7 +51,7 @@ public class AirCompany {
                 System.out.println(capacityCount());
                 break;
             case 2:
-                System.out.println(liftingCapasityCount());
+                System.out.println(liftingCapacityCount());
                 break;
             case 3:
                 System.out.println( flightRangeFilter(airPlanes,userInput()));

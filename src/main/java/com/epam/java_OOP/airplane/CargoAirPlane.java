@@ -15,7 +15,7 @@ public class CargoAirPlane extends AirPlane {
 
     @Override
     public String toString() {
-        return "CargoAirPlane{" +
+        return "Model{" +super.getModel()+
                 "liftingCapasity=" + liftingCapasity +
                 '}';
     }
