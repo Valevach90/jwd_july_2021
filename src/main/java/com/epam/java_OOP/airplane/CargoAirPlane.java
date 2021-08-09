@@ -3,22 +3,22 @@ package com.epam.java_OOP.airplane;
 import java.util.Objects;
 
 public class CargoAirPlane extends AirPlane {
-    private int liftingCapasity;
+    private int liftingCapacity;
 
 
     public CargoAirPlane(int flightRange, int fuelConsumption,  String model, int liftingCapasity) {
         super(flightRange, fuelConsumption, model);
-        this.liftingCapasity = liftingCapasity;
+        this.liftingCapacity = liftingCapasity;
     }
 
-    public int getLiftingCapasity() {
-        return liftingCapasity;
+    public int getLiftingCapacity() {
+        return liftingCapacity;
     }
 
     @Override
     public String toString() {
         return "Model{" +super.getModel()+
-                "liftingCapasity=" + liftingCapasity +
+                "liftingCapasity=" + liftingCapacity +
                 '}';
     }
 
@@ -28,11 +28,11 @@ public class CargoAirPlane extends AirPlane {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         CargoAirPlane that = (CargoAirPlane) o;
-        return liftingCapasity == that.liftingCapasity;
+        return liftingCapacity == that.liftingCapacity;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), liftingCapasity);
+        return Objects.hash(super.hashCode(), liftingCapacity);
     }
 }

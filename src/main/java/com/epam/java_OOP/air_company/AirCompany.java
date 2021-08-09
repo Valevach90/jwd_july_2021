@@ -25,15 +25,15 @@ public class AirCompany {
         this.airPlanes = airPlanes;
     }
 
-    public int capacityCount() {
-        return transportAirPlanes.stream().mapToInt(capacity -> capacity.getCapacity()).sum();
+    public int capacityCountUp() {
+        return transportAirPlanes.stream().mapToInt(capacity -> capacity.getPasagerCapacity()).sum();
     }
 
-    public int liftingCapacityCount() {
-        return cargoAirPlanes.stream().mapToInt(capacity->capacity.getLiftingCapasity()).sum();
+    public int liftingCapacityCountUp() {
+        return cargoAirPlanes.stream().mapToInt(capacity->capacity.getLiftingCapacity()).sum();
     }
 
-    public List<AirPlane> flightRangeFilter(List<AirPlane> airPlanes, int flightRange) {
+    public List<AirPlane> flightRangeFiltering(List<AirPlane> airPlanes, int flightRange) {
         return airPlanes.stream().filter(airPlaneFlightRange -> airPlaneFlightRange
                 .getFlightRange() >= flightRange)
                 .collect(Collectors.toList());
@@ -53,13 +53,13 @@ public class AirCompany {
     public void menu(int inPut) {
         switch(inPut) {
             case 1:
-                System.out.println(capacityCount());
+                System.out.println(capacityCountUp());
                 break;
             case 2:
-                System.out.println(liftingCapacityCount());
+                System.out.println(liftingCapacityCountUp());
                 break;
             case 3:
-                System.out.println( flightRangeFilter(airPlanes,userInput()));
+                System.out.println( flightRangeFiltering(airPlanes,userInput()));
                 break;
             case 4:
                 System.out.println( fuelConsumptionSearching(airPlanes,userInput()));
