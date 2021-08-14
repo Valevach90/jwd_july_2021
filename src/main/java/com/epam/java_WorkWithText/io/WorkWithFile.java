@@ -7,10 +7,11 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
 public class WorkWithFile {
+    public final String path= "./src/main/java/com/epam/java_WorkWithText/resources/";
     public StringBuilder fromFile(String filePath) {
         StringBuilder text = new StringBuilder();
         try (RandomAccessFile accessFile = new RandomAccessFile(
-                new StringBuilder("./src/main/java/com/epam/java_WorkWithText/resources/")
+                new StringBuilder(path)
                         .append(filePath).toString(), "r");
              FileChannel channel = accessFile.getChannel()) {
             ByteBuffer buffer = ByteBuffer.allocate(10);
@@ -32,7 +33,7 @@ public class WorkWithFile {
     }
     public void  toFile(String filePath,String text){
         try (RandomAccessFile accessFile = new RandomAccessFile(
-                new StringBuilder("./src/main/java/com/epam/java_WorkWithText/resources/")
+                new StringBuilder(path)
                         .append(filePath).toString(), "rw");
                FileChannel channel = accessFile.getChannel()) {
             ByteBuffer buffer = ByteBuffer.wrap(text.getBytes());
