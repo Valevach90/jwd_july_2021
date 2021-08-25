@@ -21,7 +21,7 @@ public class Word extends Text {
 
     public String[] wordParse(String text) {
         String[] wordArray = text.split(toWordRegex);
-        logger.info("Word parse is finish");
+        logger.error("Word parse is finish");
         return wordArray;
     }
 
